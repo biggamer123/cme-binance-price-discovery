@@ -1,9 +1,9 @@
-"""Native Binance quotes on any UTC day: provider files (data/native_provider/<SYM>/<day>/*.parquet, made by
-22_convert_perps_norm.py) or Tardis (data/tardis/book_ticker/<day>/<SYM>.csv.gz).
+"""Native Binance quotes on any UTC day: recorded best bid/offer files
+(data/native_provider/<SYM>/<day>/*.parquet) or Tardis (data/tardis/book_ticker/<day>/<SYM>.csv.gz).
 Per day and market:
   RQ3    with the NATIVE Binance mid on CME-open time: 100 ms cross-correlation (LLR, peak), VECM information-share
          bounds on the longest open stretch (>= 8.3 h), Hayashi-Yoshida peak, directional response D(100 ms) both ways.
-         Needs CME mbp-1 for that day: data/cme/days/<ROOT>_mbp1_<day>.parquet (21_databento_mbp1_days.py), or the
+         Needs CME mbp-1 for that day: data/cme/days/<ROOT>_mbp1_<day>.parquet (see README, Getting the data), or the
          23 Apr - 5 May tick window file.
   VALID  trade-rebuilt quote vs native (valid share, error, LLR, HY peak) if that day's aggTrades file exists.
   REOPEN every CME reopen of the main analysis (11_q3_reopen_halflife.events: same reopen time, same pre-close

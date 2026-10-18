@@ -1,7 +1,7 @@
 """Q1: does Binance price the CME closure? (weekend gaps + daily breaks)
 Inputs
   data/cme/{ROOT}_ohlcv1s.parquet   Databento GLBX.MDP3 ohlcv-1s, continuous .v.0 (to_df().to_parquet)
-  data/binance/{SYM}/klines1m/*.csv Binance perp 1m klines (from 02_download_binance.py)
+  data/binance/{SYM}/klines1m/*.csv Binance perp 1m klines (see README, Getting the data)
 Outputs
   results/q1_events_{ROOT}.csv, results/q1_summary.csv, results/q1_scatter_{ROOT}.png
 Method
