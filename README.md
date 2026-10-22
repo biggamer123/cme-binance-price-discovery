@@ -15,18 +15,20 @@ script reads from `data/` and writes to `results/`.
 |---|---|---|
 | Table 1 (activity, sample sizes) | 08, 13, 04, 26 | `table_main.csv` (trades and quote updates per day), `costs_staleness.csv` (rebuilt-quote age), `q1_summary.csv` (weekends, breaks), `q7_rq3_fulldays.csv` (native days) |
 | Table 2, RQ1 columns | 04, 30 | `q1_summary.csv`; `q10_rq1_inference.csv` (beta, HC3 95% CI, Holm p for beta = 0 and 1, leave-one-out, Ljung-Box), `q10_rq1_pooled.txt` (pooled tests clustered by weekend date) |
+| RQ1 small-cluster check (Section 4.1) | 34 | `q14_rq1_small_sample.txt` (unique weekend dates; energy-minus-metal and gold-minus-silver contrasts with wild-cluster bootstrap p-values) |
 | Table 2, RQ2 columns | 11_q3, 31 | `q3_halflife_curves.csv`; `q12_reopen_boot.csv` (gap open after 1 and 5 min, bootstrap CI) |
 | Fig. 1 (gap convergence) | 11_q3, 12_q3b, 15 | `fig5_reopen_convergence.png` |
 | RQ2 text (who closes the gap, catch-up, tick start at 5/10 s) | 07, 11_q3, 12_q3b, 31 | `q1b_catchup.csv`, `q3_halflife_summary.csv`, `q12_reopen_tick_start.csv` |
 | RQ1 index-regime and funding comparison | 27, 28 | `review_funding_payments.csv`, `review_funding_weekends.csv`, `q8_funding_regimes.csv`, `q8_funding_zero_share.csv` |
-| Table 3 (native quotes) | 24, 26, 33 | `q7_rq3_days.csv` (one row per market-day), `q7_rq3_fulldays.csv`, `q7_native_shares_by_asset.csv`, `q13_day_level.csv` |
+| Table 3a (native quotes, by market) | 24, 26, 33 | `q7_rq3_days.csv` (one row per market-day), `q7_rq3_fulldays.csv`, `q7_native_shares_by_asset.csv`, `q13_day_level.csv` |
+| Table 3b (native quotes, by date) | 34 | `q14_native_dates.csv` (source, CME-open hours, markets, LLR, lead share, HY peak per date) |
 | RQ3 index test | 28 | `q8_index_open.csv`, `q8_index_closed.csv`, `q8_index_funding.csv` |
 | Table 4 (tbbo vs mbp-1; native vs rebuilt on 1 May) | 06, 11_q2, 08, 17 | `q2_summary*.csv` (`_mbp1` suffix = every quote update), `q2_tick_*.csv`, `q5_real_1may_*.csv` |
 | Table 5a (timestamp shift) | 29, 33 | `q9_shift.csv`, `q9_shift_summary.csv` |
 | Table 5b (quote-age threshold) | 32 | `q11_quote_age_all.csv` |
 | Trading paragraph (costs, depth) | 13, 14, 18, 19 | `two_sided_fixed_rule.csv`, `costs_two_sided_native.csv` |
 
-Run order: 04, 06, 07, 11_q2, 11_q3, 12_q3b, 13, 14, 17, 18, 19, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, then 08
+Run order: 04, 06, 07, 11_q2, 11_q3, 12_q3b, 13, 14, 17, 18, 19, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, then 08
 and 15. Script 29 is slow; it can be split with `--part k/n` and merged with `--merge`.
 
 Python 3.11 or later; packages and minimum versions in `requirements.txt` (pandas, numpy, scipy, statsmodels,
